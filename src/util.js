@@ -4,7 +4,7 @@ var md5 = require('../lib/md5');
 var CryptoJS = require('../lib/crypto');
 var base64 = require('../lib/base64');
 var btoa = base64.btoa;
-var wxfs = wx.getFileSystemManager();
+var wxfs = uni.getFileSystemManager();
 var Tracker = require('./tracker');
 var { XMLParser, XMLBuilder } = require('fast-xml-parser');
 var xmlParser = new XMLParser({
@@ -184,7 +184,7 @@ var getSourceParams = function (source) {
   return { Bucket: m[1], Region: m[3], Key: m[7] };
 };
 
-var noop = function () {};
+var noop = function () { };
 
 // 清除对象里值为的 undefined 或 null 的属性
 var clearKey = function (obj) {
@@ -590,7 +590,7 @@ var throttleOnProgress = function (total, onProgress) {
           speed: speed,
           percent: percent,
         });
-      } catch (e) {}
+      } catch (e) { }
     }
   }
 
@@ -713,7 +713,7 @@ var compareVersion = function (v1, v2) {
 };
 
 var canFileSlice = (function () {
-  var systemInfo = wx.getSystemInfoSync();
+  var systemInfo = uni.getSystemInfoSync();
   var support = compareVersion(systemInfo.SDKVersion, '2.10.0') >= 0;
   var needWarning = !support && systemInfo.platform === 'devtools';
   return function () {

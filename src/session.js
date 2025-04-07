@@ -8,16 +8,16 @@ var timer;
 
 var getCache = function () {
   try {
-    var val = JSON.parse(wx.getStorageSync(cacheKey));
-  } catch (e) {}
+    var val = JSON.parse(uni.getStorageSync(cacheKey));
+  } catch (e) { }
   if (!val) val = [];
   return val;
 };
 var setCache = function () {
   try {
-    if (cache.length) wx.setStorageSync(cacheKey, JSON.stringify(cache));
-    else wx.removeStorageSync(cacheKey);
-  } catch (e) {}
+    if (cache.length) uni.setStorageSync(cacheKey, JSON.stringify(cache));
+    else uni.removeStorageSync(cacheKey);
+  } catch (e) { }
 };
 
 var init = function () {

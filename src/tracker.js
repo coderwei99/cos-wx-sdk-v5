@@ -38,9 +38,9 @@ const utils = {
   // 获取网络类型 4g ｜ wifi
   getNetType() {
     return new Promise((resolve) => {
-      if (wx.canIUse('getNetworkType')) {
+      if (uni.canIUse('getNetworkType')) {
         try {
-          wx.getNetworkType({
+          uni.getNetworkType({
             success(res) {
               resolve(res.networkType);
             },
@@ -62,9 +62,9 @@ const utils = {
       wxSdkVersion: '',
     };
     return new Promise((resolve) => {
-      if (wx.canIUse('getSystemInfo')) {
+      if (uni.canIUse('getSystemInfo')) {
         try {
-          wx.getSystemInfo({
+          uni.getSystemInfo({
             success(res) {
               const { platform, version, system, SDKVersion } = res;
               Object.assign(defaultInfo, {
